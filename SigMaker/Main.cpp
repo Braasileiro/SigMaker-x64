@@ -93,7 +93,7 @@ bool idaapi run( size_t /*arg*/ )
     return true;
 }
 
-int idaapi init( void )
+plugmod_t* idaapi init( void )
 {
     Settings.Init( );
     Settings.Load( "sigmaker.ini" );
@@ -103,7 +103,7 @@ int idaapi init( void )
 
 plugin_t PLUGIN = {
     IDP_INTERFACE_VERSION,
-    PLUGIN_KEEP,
+    (int)PLUGIN_KEEP,
     init,
     NULL,
     run,
